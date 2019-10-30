@@ -1,0 +1,81 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: fddeb0ec43a36825b888f5a4ba36728ce56c30fa24f2f09dbb1b1b30316f20b6
+
+name:           trie
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/trie#readme>
+homepage:       https://github.com/githubuser/trie#readme
+bug-reports:    https://github.com/githubuser/trie/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2019 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/trie
+
+library
+  hs-source-dirs:
+                 -- trie
+                 src/trie,
+                 -- dijkstra
+                 src/dijkstra,
+                 -- bernoulli
+                 src/bernoulli,
+                 -- cantor
+                 src/cantor
+  build-depends:
+      base >=4.7 && <5,
+      containers
+  exposed-modules:
+      Trie,
+      Bernoulli,
+      Cantor
+  default-language: Haskell2010
+
+executable trie-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , trie
+  default-language: Haskell2010
+
+test-suite trie-test
+  type: exitcode-stdio-1.0
+  main-is: TrieTests.hs
+  hs-source-dirs:
+      test/trie
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , hspec
+    , trie
+  default-language: Haskell2010
+
+test-suite bernoulli-test
+  type: exitcode-stdio-1.0
+  main-is: BernoulliTests.hs
+  hs-source-dirs:
+      test/bernoulli
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , hspec
+    , trie
+  default-language: Haskell2010
